@@ -13,28 +13,33 @@ public class BookController {
     @Autowired
     private BookRepository bookRepository;
 
+    // получить все книги
     @GetMapping
     public Iterable findAll() {
         return bookRepository.findAll();
     }
 
+    // получить книгу по названию
     @GetMapping("/title/{bookTitle}")
     public List findByTitle(@PathVariable String bookTitle) {
         return bookRepository.findByTitle(bookTitle);
     }
 
+    // получить книгу по id
     @GetMapping("/{id}")
     public Book findOne(@PathVariable Long id) {
         return bookRepository.findById(id)
                 .orElseThrow(BookNotFoundException::new);
     }
 
+    // создать книгу
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public Book create(@RequestBody Book book) {
         return bookRepository.save(book);
     }
 
+    // удалить книгу по id
     @DeleteMapping("/{id}")
     public void delete(@PathVariable Long id) {
         bookRepository.findById(id)
@@ -42,6 +47,7 @@ public class BookController {
         bookRepository.deleteById(id);
     }
 
+    // изменить книгу по id
     @PutMapping("/{id}")
     public Book updateBook(@RequestBody Book book, @PathVariable Long id) throws BookIdMismatchException {
         if (book.getId() != id) {

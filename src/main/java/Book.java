@@ -9,8 +9,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import java.io.Serializable;
 
-@Getter
-@Setter
+//@Getter
+//@Setter
 @Data
 public class Book implements Serializable {
 
@@ -34,5 +34,12 @@ public class Book implements Serializable {
     public Book() {
     }
 
-
+    @Override
+    public String toString() {
+        return "Book{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", author='" + author + '\'' +
+                '}';
+    }
 }

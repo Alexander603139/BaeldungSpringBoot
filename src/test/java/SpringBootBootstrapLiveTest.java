@@ -2,18 +2,21 @@ import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import java.util.List;
 import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 
+import javax.persistence.EntityManager;
+import javax.sql.DataSource;
+
 import static org.apache.commons.lang3.RandomStringUtils.randomAlphabetic;
 import static org.apache.commons.lang3.RandomStringUtils.randomNumeric;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 public class SpringBootBootstrapLiveTest {
 
     private static final String API_ROOT
-            = "http://localhost:8081/api/books";
+            = "http://localhost:8080/api/books";
 
     private Book createRandomBook() {
         Book book = new Book();
