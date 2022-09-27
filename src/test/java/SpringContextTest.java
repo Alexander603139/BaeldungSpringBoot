@@ -6,7 +6,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 // источник: https://rieckpil.de/guide-to-springboottest-for-spring-boot-integration-tests/
 
-//@RunWith((SpringRunner.class).class)
+@RunWith(SpringRunner.class)
 @SpringBootTest
 public class SpringContextTest {
 

@@ -16,7 +16,7 @@ import static org.junit.Assert.*;
 public class SpringBootBootstrapLiveTest {
 
     private static final String API_ROOT
-            = "http://localhost:8080/api/books";
+            = "http://localhost:8081/api/books";
 
     private Book createRandomBook() {
         Book book = new Book();
